@@ -1,0 +1,181 @@
+<!--
+    A simple one-page restaurant website with:
+    - A hero section introducing Chophouse Restaurant
+    - A menu section with featured items
+    - An about us section
+    - A contact us section
+    - Fully responsive on mobile and desktop
+    - Styled using Tailwind CSS and DaisyUI components
+    - Dark mode toggle and fade-in animation are included, without using JavaScript
+-->
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<!-- lang="en": sets the language to English for accessibility and SEO -->
+<!-- data-theme="light": sets the default theme to light mode -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chophouse Restaurant</title>
+  
+  <style>
+    /* Fade-in animation for elements */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    /* Dark mode styling */
+    [data-theme="dark"] {
+      background-color: #2c2c2c;
+      color: white;
+    }
+
+    [data-theme="dark"] .bg-base-100 {
+      background-color: #333;
+    }
+
+    [data-theme="dark"] .text-base-content {
+      color: #f1f1f1;
+    }
+
+    [data-theme="dark"] .btn-primary {
+      background-color: #6b7280;
+    }
+  </style>
+  
+  <!-- Tailwind CSS CDN Link -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DaisyUI CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.js"></script>
+</head>
+
+<body class="bg-base-100 text-base-content" id="top">
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092')] bg-cover bg-center text-white fade-in">
+    <div class="bg-black bg-opacity-60 p-10 rounded-lg text-center max-w-xl">
+      <!-- Hero Section: Full-screen background with image, opacity, and centered content -->
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Chophouse Restaurant</h1>
+      <p class="text-lg md:text-xl mb-6">Serving sizzling steaks & gourmet delights daily</p>
+      <button class="btn btn-primary btn-lg">Reserve Now</button>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="py-16 bg-base-200 text-base-content fade-in">
+    <div class="container mx-auto px-4 text-center">
+      <!-- Menu Section: Display featured menu items in a grid layout -->
+      <h2 class="text-3xl font-bold mb-8">Our Featured Menu</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Menu Item 1 -->
+        <div class="card bg-base-100 shadow-xl">
+          <figure><img src="https://images.unsplash.com/photo-1604908554200-64bdbb1d3467" alt="Grilled Steak" /></figure>
+          <div class="card-body">
+            <h3 class="card-title">Grilled Ribeye Steak</h3>
+            <p>Perfectly seasoned, flame-grilled steak with garlic butter.</p>
+            <div class="card-actions justify-end">
+              <span class="text-xl font-semibold">$24.99</span>
+            </div>
+          </div>
+        </div>
+        <!-- Menu Item 2 -->
+        <div class="card bg-base-100 shadow-xl">
+          <figure><img src="https://images.unsplash.com/photo-1605478571815-3a3cf4c04ec7" alt="Seafood Pasta" /></figure>
+          <div class="card-body">
+            <h3 class="card-title">Seafood Pasta</h3>
+            <p>Creamy linguine with fresh shrimp, calamari & herbs.</p>
+            <div class="card-actions justify-end">
+              <span class="text-xl font-semibold">$19.50</span>
+            </div>
+          </div>
+        </div>
+        <!-- Menu Item 3 -->
+        <div class="card bg-base-100 shadow-xl">
+          <figure><img src="https://images.unsplash.com/photo-1600891965050-3d48f9612b4e" alt="Classic Burger" /></figure>
+          <div class="card-body">
+            <h3 class="card-title">Classic Angus Burger</h3>
+            <p>Juicy burger stacked with cheese, lettuce, tomato & sauce.</p>
+            <div class="card-actions justify-end">
+              <span class="text-xl font-semibold">$14.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US SECTION -->
+  <section class="py-16 bg-base-100 text-base-content fade-in">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+      <!-- About Us Section: Contains a brief introduction and image of the restaurant -->
+      <div class="w-full md:w-1/2">
+        <img src="https://images.unsplash.com/photo-1555992336-03a23c66abd4" alt="Chef at work" class="rounded-lg shadow-2xl w-full">
+      </div>
+      <div class="w-full md:w-1/2">
+        <h2 class="text-3xl font-bold mb-4">About Chophouse</h2>
+        <p class="text-lg mb-4">
+          At Chophouse Restaurant, we believe in blending tradition with taste. From our sizzling steaks to handcrafted desserts, every dish tells a story of passion, flavor, and love.
+        </p>
+        <p class="text-lg">
+          With a cozy ambiance and locally sourced ingredients, our goal is simple: to serve you unforgettable meals in a place that feels like home.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US SECTION -->
+  <section class="py-16 bg-base-200 text-base-content fade-in">
+    <div class="container mx-auto px-4">
+      <!-- Contact Us Section: A form for customers to send messages -->
+      <h2 class="text-3xl font-bold mb-8 text-center">Contact Us</h2>
+      <form class="max-w-2xl mx-auto bg-base-100 p-8 rounded-lg shadow-lg space-y-6">
+        <div>
+          <label class="label">
+            <span class="label-text">Name</span>
+          </label>
+          <input type="text" placeholder="Enter your name" class="input input-bordered w-full" />
+        </div>
+        <div>
+          <label class="label">
+            <span class="label-text">Email</span>
+          </label>
+          <input type="email" placeholder="Enter your email" class="input input-bordered w-full" />
+        </div>
+        <div>
+          <label class="label">
+            <span class="label-text">Message</span>
+          </label>
+          <textarea placeholder="Your message" class="textarea textarea-bordered w-full h-32"></textarea>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER SECTION -->
+  <footer class="bg-base-200 text-base-content py-6">
+    <!-- Footer Section: Displays the copyright information -->
+    <div class="container mx-auto text-center">
+      <p class="text-sm">&copy; 2025 Chophouse Restaurant. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+<!-- End of HTML Document -->
